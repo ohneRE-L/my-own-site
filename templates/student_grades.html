@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Мои оценки{% endblock %}
+{% block page_title %}Мои оценки{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Ваши оценки</h5>
+    </div>
+    <div class="card-body">
+        <!-- Выпадающий список для выбора предмета -->
+        <form method="get" id="filter-form">
+            <label for="lesson_id">Фильтр по предмету:</label>
+            <select class="form-control" id="lesson_id" name="lesson_id" onchange="this.form.submit()">
+                <option value="">Все предметы</option>
+                {% for lesson in lessons %}
+                    <option value="{{ lesson.id }}" {% if selected_lesson == lesson.id %}selected{% endif %}>
+                        {{ lesson.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <!-- Таблица с оценками -->
+        {% if grades %}
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Предмет</th>
+                        <th>Оценка</th>
+                        <th>Дата</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade in grades %}
+                        <tr>
+                            <td>{{ grade.lesson.name if grade.lesson else 'Не указан' }}</td>
+                            <td>{{ grade.grade_type.value if grade.grade_type else 'Не указана' }}</td>
+                            <td>{{ grade.date.strftime('%Y-%m-%d') if grade.date else 'Не указана' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>У вас пока нет оценок.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

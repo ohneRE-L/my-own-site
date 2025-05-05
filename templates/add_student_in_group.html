@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить студента в группу{% endblock %}
+{% block page_title %}Добавить студента в группу{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-user-graduate"></i> Существующие студенты</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for student in students %}
+            <li class="list-group-item">
+                {{ student.first_name }} {{ student.last_name }}
+                (Группа: {{ student.group.name if student.group else 'Не указана' }})
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-plus"></i> Добавить нового студента в группу</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <label for="user_id">Пользователь:</label>
+            <select class="form-control" id="user_id" name="user_id" required onchange="fillStudentData()">
+                {% for user in users %}
+                    <option value="{{ user.id }}"
+                            data-first-name="{{ user.first_name }}"
+                            data-last-name="{{ user.last_name }}">
+                        {{ user.username }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="first_name">Имя:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" required>
+
+            <label for="last_name">Фамилия:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" required>
+
+            <label for="group_id">Группа:</label>
+            <select class="form-control" id="group_id" name="group_id" required>
+                {% for group in groups %}
+                    <option value="{{ group.id }}">{{ group.name }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" class="btn btn-primary mt-2" value="Добавить">
+        </form>
+    </div>
+</div>
+
+<script>
+    function fillStudentData() {
+        var select = document.getElementById('user_id');
+        var selectedOption = select.options[select.selectedIndex];
+        var firstName = selectedOption.getAttribute('data-first-name');
+        var lastName = selectedOption.getAttribute('data-last-name');
+        document.getElementById('first_name').value = firstName || '';
+        document.getElementById('last_name').value = lastName || '';
+    }
+
+    // Заполняем поля при загрузке страницы для первого пользователя
+    window.onload = function() {
+        fillStudentData();
+    };
+</script>
+{% endblock %}

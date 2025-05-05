@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Студенты урока{% endblock %}
+{% block page_title %}Студенты урока: {{ lesson.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-user-graduate"></i> Список студентов</h5>
+    </div>
+    <div class="card-body">
+        <!-- Фильтр по группам -->
+        <form method="GET" action="{{ url_for('teacher_lesson_students', lesson_id=lesson.id) }}" class="mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="group_id" class="form-label">Фильтр по группе:</label>
+                    <select name="group_id" id="group_id" class="form-select" onchange="this.form.submit()">
+                        <option value="">Все группы</option>
+                        {% for group in groups %}
+                            <option value="{{ group.id }}" {% if selected_group_id == group.id %}selected{% endif %}>
+                                {{ group.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <!-- Список студентов -->
+        <ul class="list-group list-group-flush">
+            {% if students %}
+                {% for student in students %}
+                    <li class="list-group-item">
+                        {{ student.first_name }} {{ student.last_name }} (Группа: {{ student.group.name }})
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="list-group-item">Студенты не найдены для выбранной группы.</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<a href="{{ url_for('teacher_dashboard') }}" class="btn btn-secondary mt-3">Назад</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Отметить посещаемость{% endblock %}
+{% block page_title %}Отметить посещаемость для урока: {{ lesson.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Отметить посещаемость</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <label for="date">Дата:</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Студент</th>
+                        <th>Присутствие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.first_name }} {{ student.last_name }}</td>
+                            <td>
+                                <select class="form-control" name="status_{{ student.id }}">
+                                    <option value="present">Присутствовал</option>
+                                    <option value="absent">Отсутствовал</option>
+                                </select>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="submit" class="btn btn-primary mt-2" value="Сохранить">
+        </form>
+    </div>
+</div>
+{% endblock %}

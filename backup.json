@@ -1,0 +1,681 @@
+{
+    "users": [
+        {
+            "email": null,
+            "password_hash": "scrypt:32768:8:1$lqtx2svuP9LtzLpT$0d383c431782c7830075f1c32be9b9ba8552e8651b7f4489d2c57682a0b02cc16438dc49a1a4dd2131a7aeb2052513f119fd4ccb73705dc6aeb0bab05587661f",
+            "username": "admin",
+            "role": "admin",
+            "id": 1
+        },
+        {
+            "email": null,
+            "password_hash": "scrypt:32768:8:1$suHtDomsufhbW8KH$2a904027a01d29ec56b8896c62ff2262b18c58303451d5b5f497006aa0539a9e29403d625ea38f4fb358e2ce3c10ad05a2a6574491369b9f8c974450977abb9c",
+            "username": "teacher",
+            "role": "teacher",
+            "id": 2
+        },
+        {
+            "email": null,
+            "password_hash": "scrypt:32768:8:1$7aS62MvoT1i5Zerb$6344a72f2979225ed7d66728cd4246da778bb497f1550685bddb99740bd249eca21c04597bc0cf54d9579f60fa9ad53bb4ceebb7e85428032010df6ecb40a9f7",
+            "username": "Ruslan",
+            "role": "student",
+            "id": 3
+        },
+        {
+            "email": null,
+            "password_hash": "scrypt:32768:8:1$rk47FI9DwX27oRBB$f5fd73c73a11d470874a5d1ad6a1f51d15053a121d4f3a68f97a44dada238c9e4a2f3c8005432a3c51223c3ed76960551e203630dd6cb4ea1b77fd1f0711034f",
+            "username": "student",
+            "role": "student",
+            "id": 4
+        },
+        {
+            "email": "test@test.com",
+            "password_hash": "scrypt:32768:8:1$hghWpgmKaOfmjzrN$4a628ae190467fbd58d974a3fe9d06b51fe7085c17d117dc71516693b7f68af23f7eb9da633e21d6d55e5bf207ff15bb99ae39553a30e46b7252c6eed25a7976",
+            "username": "test",
+            "role": "student",
+            "id": 5
+        },
+        {
+            "email": "student1@test.com",
+            "password_hash": "scrypt:32768:8:1$LCTmKEfDtHT0NIWk$ae83c9a57a05a45ed16763c4f7b5fa49231409191f6097c28a68d3a7940e1d831198e9d3cb0dceded493eb6c90dbae9f16f585fa2e24b8050a1d6b30f66d60c5",
+            "username": "Student1",
+            "role": "student",
+            "id": 6
+        },
+        {
+            "email": "student2@test.com",
+            "password_hash": "scrypt:32768:8:1$oXDg7tXETeF5uNV6$23de43398b691eff8516ba78991895bd38ea33b020e247c07e4b1045aac762b1180be1194595582b950ec52e7f807456ed6f0d3b8e8c92c807564cb03d5bf3d3",
+            "username": "student2",
+            "role": "student",
+            "id": 7
+        },
+        {
+            "email": "student3@test.com",
+            "password_hash": "scrypt:32768:8:1$5eHXVfSzQZ0NTUWB$b957a9f8f5e2f11db10780ae50f4daed7eb5494fc78f6f5d51c7fe8c10f7b6515861b17dbfa658398da89ccb9e828f9cb41b5ebfbdb2c9fcef6d84b1d97e7347",
+            "username": "student3",
+            "role": "student",
+            "id": 8
+        },
+        {
+            "email": "student4@test.com",
+            "password_hash": "scrypt:32768:8:1$ZxfG7jZMQWeS9Upi$7668e814f2c898ac5759a4f5ffd41dabd17469d5ce5ebd8129bbb7144e4e3090f31661cd806b3d6cfc320f5d874324f3a32e26dd07ae5a5f09138f39452b7833",
+            "username": "student4",
+            "role": "student",
+            "id": 9
+        },
+        {
+            "email": "student5@test.com",
+            "password_hash": "scrypt:32768:8:1$rjJppTxxY40F6NAE$b07525bc6f83ed803169bca473234adfc182e8ea0ec65840482f713666b09d07618df9f45bb01eeda84c08ee67c0a82d999242c61056796d97484dbf9a82df85",
+            "username": "student5",
+            "role": "student",
+            "id": 10
+        },
+        {
+            "email": "student6@test.com",
+            "password_hash": "scrypt:32768:8:1$EuwXHuulhAXBx1Xq$b602c77cd605ef0fe206fa3e72d678edf8373d4427e9e6bd57d7ed697246c4488949093b7084ca8fd0b0ca6bebffa04ee46cbedd331175737df6b3e38fe1646c",
+            "username": "student6",
+            "role": "student",
+            "id": 11
+        },
+        {
+            "email": "student7@test.com",
+            "password_hash": "scrypt:32768:8:1$cjeR3QCJRPxoNSP1$395827b21ffc75df6615875bf16b7421601a5d2e52659007e58fb81dec838f951345e62f0e11aa2c796cb85791e2d851808a91494e6a4b7301f9450a196115dc",
+            "username": "student7",
+            "role": "student",
+            "id": 12
+        },
+        {
+            "email": "student8@test.com",
+            "password_hash": "scrypt:32768:8:1$dOQNbUyEbGmNlTtC$82a4962f119a0d707f2433bbadaebfe0acee755c0804a16c212e7f5f4dd44e6f73d57c1d1c39a13338eb9861fe5896b0901bd56866e47f1c6b87e02617b0e4e7",
+            "username": "student8",
+            "role": "student",
+            "id": 13
+        },
+        {
+            "email": "student9@test.com",
+            "password_hash": "scrypt:32768:8:1$hoBxiGwx4yOu9mXt$e8c8375517d9c2f6798b4c93ef935a7e9fadcae3bc4efc593f356e930b77b0514b0dfc65e7de179ff2250647a590a04aab80b2ca8baced73b8db66c09e3a6060",
+            "username": "student9",
+            "role": "student",
+            "id": 14
+        },
+        {
+            "email": "student10@test.com",
+            "password_hash": "scrypt:32768:8:1$2X3pvcLKzvHjEu46$f00d4d1074cd1bbabbe1d553e36888202c4138b2f49a85f41d97ce989593ff0aa7e49462c3bf0dead2bbb143cc8215ea84ec6135fb8a5876716e7f377c1d4b00",
+            "username": "student10",
+            "role": "student",
+            "id": 15
+        },
+        {
+            "email": "student11@test.com",
+            "password_hash": "scrypt:32768:8:1$dAIo53G7VN0S31SZ$e3bf75f4d780064eb9f917b66be05536b528226f657d8f48d648fedbedc7cf95181e1878d05999d8df900dd0ebaa677daebeb513c3b481d6948b6123f87ef25e",
+            "username": "student11",
+            "role": "student",
+            "id": 16
+        },
+        {
+            "email": "student12@test.com",
+            "password_hash": "scrypt:32768:8:1$TFocYLO7nPjC9UDT$457bd9b7a673bf4162f7cdb47e125fd825ae5a6be13db4a06f94914bd6d89c7f6f2310bd62707e0d0c89da93c3811f26389b4ae1d897f68f2b16fd41558189aa",
+            "username": "student12",
+            "role": "student",
+            "id": 17
+        },
+        {
+            "email": "student13@test.com",
+            "password_hash": "scrypt:32768:8:1$WpddPucJJ8HSC63j$cb47b275ee996e40bcd6a8c6d42cbc17d8c95a54f90d07fae935e80e68b5f7972d52996d2b86e81a55c34a8c304fc29d242af77379452de4105976bfce203f9c",
+            "username": "student13",
+            "role": "student",
+            "id": 18
+        },
+        {
+            "email": "student14@test.com",
+            "password_hash": "scrypt:32768:8:1$jF0n2gdHIbRhkvuG$5912d8d576d62ef274947a683adba3affeaedfda8c1c7c385a230e3911fe9636cbea4a8e8a834685756a0796085f940537647d3ba1eed9df72682d600c6ed1ae",
+            "username": "student14",
+            "role": "student",
+            "id": 19
+        },
+        {
+            "email": "student15@test.com",
+            "password_hash": "scrypt:32768:8:1$GZjaj75TNXq4esjN$f733afedf0b41dfa863275eded76c7749a7abeee4ff0922a5fde6ac9be4da43f61da6f217ad7b177b12245cbbaabe5c40cbf8aa57fa56648cb209eb8a272afb4",
+            "username": "student15",
+            "role": "student",
+            "id": 20
+        },
+        {
+            "email": "student16@test.com",
+            "password_hash": "scrypt:32768:8:1$mWrRjHMHpeRU1WQX$db01df17e50f2423ace58349b8e2da4df0f35d9233bbb3f866fbb7096e162a3ee9c41b64839b9a859afd2e6d7007535a66f9b2210c61f1e2edecd5eb2dbf6333",
+            "username": "student16",
+            "role": "student",
+            "id": 21
+        },
+        {
+            "email": "student17@test.com",
+            "password_hash": "scrypt:32768:8:1$YmxXGuD8igVIIbI7$fdf401dab18a7cfcb5758efe815ed223e2f6f995cdbf919fb696b4fe97dabe6c1f9efb57b817efb8ae4c53f6a5ad3512f688df7f0f51812616b973f22fa80a44",
+            "username": "student17",
+            "role": "student",
+            "id": 22
+        },
+        {
+            "email": "student18@test.com",
+            "password_hash": "scrypt:32768:8:1$sKZxMMjV5otbfrYh$c4c4d7e064d287ca0bc4a74327ec738a3b3640978d5e58e24e0d3f16945e614a9481861cc4126c04ee26a4bcc4137f937ae9380ede4c6cc7fb8760d212a5f38f",
+            "username": "student18",
+            "role": "student",
+            "id": 23
+        }
+    ],
+    "faculties": [
+        {
+            "id": 1,
+            "name": "ФЭМИТ"
+        },
+        {
+            "id": 3,
+            "name": "ФПИПО"
+        }
+    ],
+    "groups": [
+        {
+            "id": 1,
+            "teacher_id": 1,
+            "name": "И-1-23",
+            "faculty_id": 1
+        },
+        {
+            "id": 2,
+            "teacher_id": 1,
+            "name": "И-2-23",
+            "faculty_id": 1
+        },
+        {
+            "id": 3,
+            "teacher_id": 1,
+            "name": "И-3-23",
+            "faculty_id": 1
+        },
+        {
+            "id": 4,
+            "teacher_id": null,
+            "name": "Тестовая группа",
+            "faculty_id": 2
+        }
+    ],
+    "students": [
+        {
+            "id": 1,
+            "last_name": "Фазилов",
+            "user_id": 3,
+            "group_id": 1,
+            "first_name": "Руслан"
+        },
+        {
+            "id": 2,
+            "last_name": "student",
+            "user_id": 6,
+            "group_id": 1,
+            "first_name": "student"
+        },
+        {
+            "id": 3,
+            "last_name": "test",
+            "user_id": 5,
+            "group_id": 2,
+            "first_name": "test"
+        },
+        {
+            "id": 4,
+            "last_name": "Student1",
+            "user_id": 6,
+            "group_id": 1,
+            "first_name": "Student1"
+        },
+        {
+            "id": 5,
+            "last_name": "student2",
+            "user_id": 7,
+            "group_id": 1,
+            "first_name": "student2"
+        },
+        {
+            "id": 6,
+            "last_name": "student3",
+            "user_id": 8,
+            "group_id": 1,
+            "first_name": "student3"
+        },
+        {
+            "id": 7,
+            "last_name": "student4",
+            "user_id": 9,
+            "group_id": 1,
+            "first_name": "student4"
+        },
+        {
+            "id": 8,
+            "last_name": "student5",
+            "user_id": 10,
+            "group_id": 1,
+            "first_name": "student5"
+        },
+        {
+            "id": 9,
+            "last_name": "student6",
+            "user_id": 11,
+            "group_id": 1,
+            "first_name": "student6"
+        },
+        {
+            "id": 10,
+            "last_name": "student7",
+            "user_id": 12,
+            "group_id": 1,
+            "first_name": "student7"
+        },
+        {
+            "id": 11,
+            "last_name": "student8",
+            "user_id": 13,
+            "group_id": 1,
+            "first_name": "student8"
+        },
+        {
+            "id": 12,
+            "last_name": "student9",
+            "user_id": 14,
+            "group_id": 1,
+            "first_name": "student9"
+        },
+        {
+            "id": 13,
+            "last_name": "student10",
+            "user_id": 15,
+            "group_id": 1,
+            "first_name": "student10"
+        },
+        {
+            "id": 14,
+            "last_name": "student11",
+            "user_id": 16,
+            "group_id": 1,
+            "first_name": "student11"
+        },
+        {
+            "id": 15,
+            "last_name": "student12",
+            "user_id": 17,
+            "group_id": 1,
+            "first_name": "student12"
+        },
+        {
+            "id": 16,
+            "last_name": "student13",
+            "user_id": 18,
+            "group_id": 1,
+            "first_name": "student13"
+        },
+        {
+            "id": 17,
+            "last_name": "student14",
+            "user_id": 19,
+            "group_id": 1,
+            "first_name": "student14"
+        },
+        {
+            "id": 18,
+            "last_name": "student15",
+            "user_id": 20,
+            "group_id": 1,
+            "first_name": "student15"
+        },
+        {
+            "id": 19,
+            "last_name": "student16",
+            "user_id": 21,
+            "group_id": 1,
+            "first_name": "student16"
+        },
+        {
+            "id": 20,
+            "last_name": "student17",
+            "user_id": 22,
+            "group_id": 1,
+            "first_name": "student17"
+        },
+        {
+            "id": 21,
+            "last_name": "student18",
+            "user_id": 23,
+            "group_id": 1,
+            "first_name": "student18"
+        }
+    ],
+    "teachers": [
+        {
+            "user_id": 2,
+            "id": 1,
+            "first_name": "teacher",
+            "last_name": "teacher"
+        }
+    ],
+    "lessons": [
+        {
+            "id": 1,
+            "name": "БД",
+            "teacher_id": 1
+        },
+        {
+            "id": 2,
+            "name": "АиП",
+            "teacher_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Основы программирования",
+            "teacher_id": 1
+        },
+        {
+            "id": 4,
+            "name": "Алгоритмы и структуры данных",
+            "teacher_id": 1
+        },
+        {
+            "id": 5,
+            "name": "Объектно-ориентированное программирование",
+            "teacher_id": 1
+        },
+        {
+            "id": 6,
+            "name": "Функциональное программирование",
+            "teacher_id": 1
+        }
+    ],
+    "grade_types": [
+        {
+            "value": "Отлично",
+            "id": 1
+        },
+        {
+            "value": "Хорошо",
+            "id": 2
+        },
+        {
+            "value": "Удовлетворительно",
+            "id": 3
+        },
+        {
+            "value": "Неудовлетворительно",
+            "id": 4
+        },
+        {
+            "value": "Зачет",
+            "id": 5
+        },
+        {
+            "value": "Незачет",
+            "id": 6
+        }
+    ],
+    "journal": [
+        {
+            "id": 1,
+            "grade_id": 1,
+            "student_id": 1,
+            "lesson_id": 1,
+            "date": "2024-10-14"
+        },
+        {
+            "id": 2,
+            "grade_id": 2,
+            "student_id": 1,
+            "lesson_id": 1,
+            "date": "2025-03-11"
+        },
+        {
+            "id": 3,
+            "grade_id": 1,
+            "student_id": 2,
+            "lesson_id": 1,
+            "date": "2024-10-14"
+        },
+        {
+            "id": 4,
+            "grade_id": 1,
+            "student_id": 1,
+            "lesson_id": 2,
+            "date": "2024-11-14"
+        }
+    ],
+    "attendances": [
+        {
+            "student_id": 1,
+            "lesson_id": 1,
+            "status": "present",
+            "id": 1,
+            "date": "2024-10-14"
+        },
+        {
+            "student_id": 1,
+            "lesson_id": 2,
+            "status": "present",
+            "id": 2,
+            "date": "2024-11-14"
+        },
+        {
+            "student_id": 1,
+            "lesson_id": 1,
+            "status": "present",
+            "id": 3,
+            "date": "2025-03-11"
+        },
+        {
+            "student_id": 2,
+            "lesson_id": 1,
+            "status": "present",
+            "id": 4,
+            "date": "2025-03-11"
+        },
+        {
+            "student_id": 2,
+            "lesson_id": 1,
+            "status": "present",
+            "id": 5,
+            "date": "2024-10-14"
+        },
+        {
+            "student_id": 2,
+            "lesson_id": 2,
+            "status": "present",
+            "id": 6,
+            "date": "2024-11-14"
+        },
+        {
+            "student_id": 1,
+            "lesson_id": 1,
+            "status": "absent",
+            "id": 7,
+            "date": "1111-11-11"
+        },
+        {
+            "student_id": 2,
+            "lesson_id": 1,
+            "status": "present",
+            "id": 8,
+            "date": "1111-11-11"
+        },
+        {
+            "student_id": 1,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 9,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 2,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 10,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 4,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 11,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 5,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 12,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 6,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 13,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 7,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 14,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 8,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 15,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 9,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 16,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 10,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 17,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 11,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 18,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 12,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 19,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 13,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 20,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 14,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 21,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 15,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 22,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 16,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 23,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 17,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 24,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 18,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 25,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 19,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 26,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 20,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 27,
+            "date": "2024-03-14"
+        },
+        {
+            "student_id": 21,
+            "lesson_id": 3,
+            "status": "present",
+            "id": 28,
+            "date": "2024-03-14"
+        }
+    ],
+    "lesson_groups": [
+        {
+            "lesson_id": 1,
+            "group_id": 1,
+            "id": 1
+        },
+        {
+            "lesson_id": 2,
+            "group_id": 1,
+            "id": 2
+        },
+        {
+            "lesson_id": 1,
+            "group_id": 2,
+            "id": 3
+        },
+        {
+            "lesson_id": 3,
+            "group_id": 1,
+            "id": 4
+        },
+        {
+            "lesson_id": 5,
+            "group_id": 1,
+            "id": 5
+        },
+        {
+            "lesson_id": 4,
+            "group_id": 1,
+            "id": 6
+        },
+        {
+            "lesson_id": 6,
+            "group_id": 1,
+            "id": 7
+        }
+    ]
+}

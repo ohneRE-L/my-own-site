@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить расписание{% endblock %}
+
+{% block page_title %}Добавить расписание{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form method="post">
+                <div class="mb-3">
+                    <label for="faculty_id" class="form-label">Факультет:</label>
+                    <select id="faculty_id" name="faculty_id" class="form-control" required>
+                        {% for faculty in faculties %}
+                            <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="week_type" class="form-label">Тип недели:</label>
+                    <select id="week_type" name="week_type" class="form-control" required>
+                        <option value="NUMERATOR">Числительная</option>
+                        <option value="DENOMINATOR">Знаменательная</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="day_of_week" class="form-label">День недели:</label>
+                    <select id="day_of_week" name="day_of_week" class="form-control" required>
+                        <option value="Понедельник">Понедельник</option>
+                        <option value="Вторник">Вторник</option>
+                        <option value="Среда">Среда</option>
+                        <option value="Четверг">Четверг</option>
+                        <option value="Пятница">Пятница</option>
+                        <option value="Суббота">Суббота</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="time_slot" class="form-label">Время:</label>
+                    <input type="text" id="time_slot" name="time_slot" class="form-control" placeholder="Например, 08:00-09:30" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lesson_id" class="form-label">Урок:</label>
+                    <select id="lesson_id" name="lesson_id" class="form-control" required>
+                        {% for lesson in lessons %}
+                            <option value="{{ lesson.id }}">{{ lesson.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary mt-3">Назад</a>
+        </div>
+    </div>
+{% endblock %}

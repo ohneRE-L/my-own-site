@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Панель студента{% endblock %}
+{% block page_title %}Панель студента{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Информация о студенте</h5>
+    </div>
+    <div class="card-body">
+        {% if student %}
+            <h2>Студент: {{ student.first_name }} {{ student.last_name }}</h2>
+        {% else %}
+            <h2>Вы еще не зарегистрированы как студент</h2>
+        {% endif %}
+    </div>
+</div>
+
+{% if student %}
+    <div class="card">
+        <div class="card-header">
+            <h5><i class="fas fa-book"></i> Ваши предметы</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for lesson in lessons %}
+                <li class="list-group-item">{{ lesson.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Ваши оценки</h5>
+        </div>
+        <div class="card-body">
+            {% if grades %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Оценка</th>
+                            <th>Дата</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for grade in grades %}
+                            <tr>
+                                <td>{{ grade.lesson.name if grade.lesson else 'Не указан' }}</td>
+                                <td>{{ grade.grade_type.value if grade.grade_type else 'Не указана' }}</td>
+                                <td>{{ grade.date.strftime('%Y-%m-%d') if grade.date else 'Не указана' }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>У вас пока нет оценок.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

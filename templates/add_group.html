@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить группу{% endblock %}
+{% block page_title %}Добавить группу{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-users"></i> Существующие группы</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for group in groups %}
+            <li class="list-group-item">
+                {{ group.name }} (Факультет: {{ group.faculty.name }})
+                {% if group.teacher %}
+                    (Куратор: {{ group.teacher.first_name }} {{ group.teacher.last_name }})
+                {% else %}
+                    (Без куратора)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5><i class="fas fa-plus"></i> Добавить новую группу</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Название группы</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="faculty_id" class="form-label">Факультет</label>
+                <select class="form-control" id="faculty_id" name="faculty_id" required>
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="teacher_id" class="form-label">Куратор (опционально)</label>
+                <select class="form-control" id="teacher_id" name="teacher_id">
+                    <option value="">Без куратора</option>
+                    {% for teacher in teachers %}
+                        <option value="{{ teacher.id }}">{{ teacher.first_name }} {{ teacher.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

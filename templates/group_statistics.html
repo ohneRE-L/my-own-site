@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Статистика группы{% endblock %}
+{% block page_title %}Статистика группы: {{ group.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Группа: {{ group.name }} (Факультет: {{ group.faculty.name }})</h5>
+    </div>
+    <div class="card-body">
+        {% if group_stats['students'] %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Посещаемость</th>
+                        <th>Оценки</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in group_stats['students'] %}
+                        <tr>
+                            <td>{{ student.first_name }}</td>
+                            <td>{{ student.last_name }}</td>
+                            <td>
+                                {% for lesson_id, stats in group_stats['student_stats'][student.id].items() %}
+                                    <strong>{{ stats['lesson_name'] }}:</strong>
+                                    {% for date, status in stats['attendance'] %}
+                                        {{ date.strftime('%Y-%m-%d') }}:
+                                        {% if status == 'present' %}
+                                            <span class="badge bg-success">Присутствовал</span>
+                                        {% elif status == 'absent' %}
+                                            <span class="badge bg-danger">Отсутствовал</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary">Неизвестно</span>
+                                        {% endif %}<br>
+                                    {% endfor %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for lesson_id, stats in group_stats['student_stats'][student.id].items() %}
+                                    <strong>{{ stats['lesson_name'] }}:</strong>
+                                    {% for date, grade in stats['grades'] %}
+                                        {{ date.strftime('%Y-%m-%d') }}: {{ grade }}<br>
+                                    {% endfor %}<br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>В группе нет студентов.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

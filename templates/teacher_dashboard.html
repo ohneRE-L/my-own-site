@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Панель преподавателя{% endblock %}
+{% block page_title %}
+    {% if teacher %}
+        Панель преподавателя: {{ teacher.first_name }} {{ teacher.last_name }}
+    {% else %}
+        Панель преподавателя: Вы еще не зарегистрированы
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if teacher %}
+    <!-- Список уроков -->
+    <div class="card">
+        <div class="card-header">
+            <h5><i class="fas fa-book"></i> Ваши уроки</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for lesson in lessons %}
+                <li class="list-group-item">
+                    <!-- Кликабельное название урока ведет на список студентов -->
+                    <a href="{{ url_for('teacher_lesson_students', lesson_id=lesson.id) }}" class="text-decoration-none text-dark">
+                        {{ lesson.name }}
+                    </a>
+                    <!-- Дополнительные кнопки -->
+                    <div class="float-end">
+                        <a href="{{ url_for('teacher_lesson_students', lesson_id=lesson.id) }}" class="btn btn-sm btn-primary ms-2">
+                            Список студентов
+                        </a>
+                        <a href="{{ url_for('add_grade', lesson_id=lesson.id) }}" class="btn btn-sm btn-success ms-2">
+                            Добавить оценку
+                        </a>
+                        <a href="{{ url_for('mark_attendance', lesson_id=lesson.id) }}" class="btn btn-sm btn-warning ms-2">
+                            Отметить посещаемость
+                        </a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="list-group-item">У вас пока нет уроков.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Список групп -->
+    <div class="card">
+        <div class="card-header">
+            <h5><i class="fas fa-users"></i> Ваши группы</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for group in groups %}
+                <li class="list-group-item">
+                    <!-- Кликабельное название группы ведет на статистику -->
+                    <a href="{{ url_for('group_statistics', group_id=group.id) }}" class="text-decoration-none text-dark">
+                        {{ group.name }} (Факультет: {{ group.faculty.name }})
+                    </a>
+                    <!-- Дополнительная кнопка -->
+                    <div class="float-end">
+                        <a href="{{ url_for('group_statistics', group_id=group.id) }}" class="btn btn-sm btn-info ms-2">
+                            Статистика
+                        </a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="list-group-item">У вас пока нет групп.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <p>Уроки отсутствуют, так как вы не зарегистрированы как преподаватель.</p>
+{% endif %}
+{% endblock %}

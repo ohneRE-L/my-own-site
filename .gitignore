@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+site.db
+venv/
+.env
+*.sock
+docker-compose.yml
+Dockerfile
+requirements.txt

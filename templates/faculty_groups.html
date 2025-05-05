@@ -1,0 +1,19 @@
+f{% extends "base.html" %}
+{% block title %}Группы факультета {{ faculty.name }}{% endblock %}
+{% block page_title %}Группы факультета {{ faculty.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Группы факультета {{ faculty.name }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for group in groups %}
+            <li class="list-group-item">
+                <a href="{{ url_for('group_students', group_id=group.id) }}">{{ group.name }}</a>
+                (Куратор: {{ group.teacher.first_name + ' ' + group.teacher.last_name if group.teacher else 'Нет куратора' }})
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

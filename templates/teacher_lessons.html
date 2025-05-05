@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои уроки</title>
+</head>
+<body>
+    <h1>Мои уроки</h1>
+    <ul>
+        {% for lesson in lessons %}
+            <li>{{ lesson.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Назад</a>
+</body>
+</html>

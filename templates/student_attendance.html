@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Моя посещаемость{% endblock %}
+{% block page_title %}Моя посещаемость{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Ваша посещаемость</h5>
+    </div>
+    <div class="card-body">
+        {% if attendances %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Предмет</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for attendance in attendances %}
+                        <tr>
+                            <td>{{ lessons[attendance.lesson_id] if attendance.lesson_id in lessons else 'Не указан' }}</td>
+                            <td>{{ attendance.date.strftime('%Y-%m-%d') if attendance.date else 'Не указана' }}</td>
+                            <td>
+                                {% if attendance.status == 'present' %}
+                                    <span class="badge bg-success">Присутствовал</span>
+                                {% elif attendance.status == 'absent' %}
+                                    <span class="badge bg-danger">Отсутствовал</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Неизвестно</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>У вас пока нет записей о посещаемости.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

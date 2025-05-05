@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Просмотр расписания{% endblock %}
+
+{% block page_title %}Расписание факультетов{% endblock %}
+
+{% block content %}
+    <style>
+        /* Фиксируем макет таблицы */
+        .table {
+            table-layout: fixed; /* Заставляем таблицу строго соблюдать заданные ширины */
+            width: 100%; /* Таблица занимает всю доступную ширину */
+        }
+        .table th, .table td {
+            padding: 8px;
+            vertical-align: middle;
+            overflow: hidden; /* Скрываем переполнение */
+        }
+        .table th.day-of-week, .table td.day-of-week {
+            width: 150px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .table th.time-slot, .table td.time-slot {
+            width: 100px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .table th.lesson-name, .table td.lesson-name {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* Защита от съезжания на маленьких экранах */
+        @media (max-width: 768px) {
+            .table th.day-of-week, .table td.day-of-week,
+            .table th.time-slot, .table td.time-slot,
+            .table th.lesson-name, .table td.lesson-name {
+                width: auto;
+                white-space: normal;
+            }
+        }
+    </style>
+
+    {% if faculties %}
+        {% for faculty in faculties %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>{{ faculty.name }}</h3>
+                    <h4>Числительная неделя</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="day-of-week">День недели</th>
+                                <th class="time-slot">Время</th>
+                                <th class="lesson-name">Урок</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for schedule in schedules if schedule.faculty_id == faculty.id and schedule.week_type.name == 'NUMERATOR' %}
+                                <tr>
+                                    <td class="day-of-week" title="{{ schedule.day_of_week }}">{{ schedule.day_of_week }}</td>
+                                    <td class="time-slot" title="{{ schedule.time_slot }}">{{ schedule.time_slot }}</td>
+                                    <td class="lesson-name" title="{{ schedule.lesson_name }}">{{ schedule.lesson_name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h4>Знаменательная неделя</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="day-of-week">День недели</th>
+                                <th class="time-slot">Время</th>
+                                <th class="lesson-name">Урок</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for schedule in schedules if schedule.faculty_id == faculty.id and schedule.week_type.name == 'DENOMINATOR' %}
+                                <tr>
+                                    <td class="day-of-week" title="{{ schedule.day_of_week }}">{{ schedule.day_of_week }}</td>
+                                    <td class="time-slot" title="{{ schedule.time_slot }}">{{ schedule.time_slot }}</td>
+                                    <td class="lesson-name" title="{{ schedule.lesson_name }}">{{ schedule.lesson_name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Расписание не найдено.</p>
+    {% endif %}
+    {% if current_user.role == 'admin' %}
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Назад</a>
+    {% elif current_user.role == 'teacher' %}
+        <a href="{{ url_for('teacher_dashboard') }}" class="btn btn-secondary">Назад</a>
+    {% elif current_user.role == 'student' %}
+        <a href="{{ url_for('student_dashboard') }}" class="btn btn-secondary">Назад</a>
+    {% endif %}
+{% endblock %}

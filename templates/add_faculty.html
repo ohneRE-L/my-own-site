@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить факультет{% endblock %}
+{% block page_title %}Добавить факультет{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-university"></i> Существующие факультеты</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for faculty in faculties %}
+            <li class="list-group-item">{{ faculty.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-plus"></i> Добавить новый факультет</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <label for="name">Название факультета:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="submit" class="btn btn-primary mt-2" value="Добавить">
+        </form>
+    </div>
+</div>
+{% endblock %}

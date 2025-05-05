@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить оценку{% endblock %}
+{% block page_title %}Добавить оценку для урока: {{ lesson.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5><i class="fas fa-plus"></i> Добавить/Обновить оценку</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <label for="student_id">Студент:</label>
+            <select class="form-control" id="student_id" name="student_id" required>
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.first_name }} {{ student.last_name }} ({{ student.group.name }})</option>
+                {% endfor %}
+            </select>
+            <label for="grade_id">Оценка:</label>
+            <select class="form-control" id="grade_id" name="grade_id" required>
+                {% for grade in grade_types %}
+                    <option value="{{ grade.id }}">{{ grade.value }}</option>
+                {% endfor %}
+            </select>
+            <label for="date">Дата:</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+            <input type="submit" class="btn btn-primary mt-2" value="Сохранить">
+        </form>
+    </div>
+</div>
+<a href="{{ url_for('teacher_dashboard') }}" class="btn btn-secondary mt-3">Назад</a>
+{% endblock %}

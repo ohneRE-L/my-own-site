@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Редактирование группы{% endblock %}
+{% block page_title %}Редактирование группы{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5>Выберите группу для редактирования</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" name="action" value="select_group">
+            <div class="mb-3">
+                <label for="group_id" class="form-label">Группа:</label>
+                <select class="form-control" id="group_id" name="group_id" required>
+                    <option value="">-- Выберите группу --</option>
+                    {% for group in groups %}
+                        <option value="{{ group.id }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Выбрать</button>
+        </form>
+    </div>
+</div>
+
+{% if group %}
+<div class="card mt-4">
+    <div class="card-header">
+        <h5>Редактировать группу {{ group.name }}</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" name="action" value="update_group">
+            <input type="hidden" name="group_id" value="{{ group.id }}">
+            <div class="mb-3">
+                <label for="name" class="form-label">Название группы:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ group.name }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="faculty_id" class="form-label">Факультет:</label>
+                <select class="form-control" id="faculty_id" name="faculty_id" required>
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.id }}" {% if faculty.id == group.faculty_id %}selected{% endif %}>
+                            {{ faculty.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="teacher_id" class="form-label">Куратор:</label>
+                <select class="form-control" id="teacher_id" name="teacher_id">
+                    <option value="" {% if not group.teacher_id %}selected{% endif %}>Без куратора</option>
+                    {% for teacher in teachers %}
+                        <option value="{{ teacher.id }}" {% if teacher.id == group.teacher_id %}selected{% endif %}>
+                            {{ teacher.first_name }} {{ teacher.last_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить изменения группы</button>
+        </form>
+    </div>
+</div>
+
+<!-- Список студентов -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h5>Студенты группы {{ group.name }}</h5>
+    </div>
+    <div class="card-body">
+        {% if students %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.first_name }}</td>
+                            <td>{{ student.last_name }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editStudentModal{{ student.id }}">Редактировать</button>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="action" value="delete_student">
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Вы уверены, что хотите удалить студента?');">Удалить</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>В группе нет студентов.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Модальные окна для редактирования студентов -->
+{% for student in students %}
+<div class="modal fade" id="editStudentModal{{ student.id }}" tabindex="-1" aria-labelledby="editStudentModalLabel{{ student.id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editStudentModalLabel{{ student.id }}">Редактировать студента {{ student.first_name }} {{ student.last_name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <input type="hidden" name="action" value="edit_student">
+                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                    <div class="mb-3">
+                        <label for="first_name_{{ student.id }}" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="first_name_{{ student.id }}" name="first_name" value="{{ student.first_name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name_{{ student.id }}" class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="last_name_{{ student.id }}" name="last_name" value="{{ student.last_name }}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}
